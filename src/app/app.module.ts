@@ -10,6 +10,7 @@ import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
 import { FormsModule } from '@angular/forms';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     LoginPage,
     PokemonCataloguePage,
     TrainerPage,
-    LoginFormComponent
+    LoginFormComponent,
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,
