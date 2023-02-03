@@ -1,6 +1,7 @@
 <div *ngIf="pokemon"> 
     <div class="container flex flex-col text-center shadow-xl 
-    bg-grid-item rounded-2xl border-color-gird-item">
+    bg-grid-item rounded-2xl border-color-gird-item relative">
+    <app-favourite-button [pokemonName]="pokemon.name"></app-favourite-button>
         <section class="flex justify-center content-center">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon.url.slice(34, -1) }}.png" alt="pokemon.name"
             class="block">
@@ -8,8 +9,5 @@
         <span class="text-gray-200 text-sm font-bold">
             Name: {{pokemon.name}}
         </span>
-        <button>
-            Favour
-        </button>
     </div>
 </div>

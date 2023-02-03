@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { PokemonGridComponent } from './components/pokemon-grid/pokemon-grid.component';
 import { PokemonGridItemComponent } from './components/pokemon-grid-item/pokemon-grid-item.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FavouriteButtonComponent } from './components/favourite-button/favourite-button.component';
+import { FavouritePokemonComponent } from './components/favourite-pokemon/favourite-pokemon.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginFormComponent,
     PokemonGridComponent,
     PokemonGridItemComponent,
-    NavbarComponent
+    NavbarComponent,
+    FavouriteButtonComponent,
+    FavouritePokemonComponent
   ],
   imports: [
     BrowserModule,
