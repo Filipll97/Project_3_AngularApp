@@ -1,9 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 body {
     background: #FFFDED;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-title-text {
+    font-size: 75px;
+    color: #ffcb05;
+    text-shadow: 10px 7.57446px 7.57446px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke: 4px #333;
 }
 
 .bg-grid-container{

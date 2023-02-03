@@ -1,0 +1,17 @@
+<nav class="bg-amber-200 flex justify-between items-center p-4 sticky top-0 w-full">
+    <section>
+        <img src="assets/img/pokemon-logo.png" alt="pokemon title logo"
+        class="m-0 h-20 w-55 ml-10">
+    </section>
+    <ng-container *ngIf="trainer !== undefined">
+        <ul class="flex">
+            <li class="px-4">
+                <a routerLink="/trainer">TrainerPage</a>
+            </li>
+            <li class="px-4">
+                <a routerLink="/pokemon-catalogue">pokemon catalogue</a>
+            </li>
+        </ul>
+    </ng-container>
+</nav>
+

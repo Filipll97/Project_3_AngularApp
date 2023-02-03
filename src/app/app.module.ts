@@ -12,6 +12,7 @@ import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogu
 import { FormsModule } from '@angular/forms';
 import { PokemonGridComponent } from './components/pokemon-grid/pokemon-grid.component';
 import { PokemonGridItemComponent } from './components/pokemon-grid-item/pokemon-grid-item.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PokemonGridItemComponent } from './components/pokemon-grid-item/pokemon
     TrainerPage,
     LoginFormComponent,
     PokemonGridComponent,
-    PokemonGridItemComponent
+    PokemonGridItemComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
