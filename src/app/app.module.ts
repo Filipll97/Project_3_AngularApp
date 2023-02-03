@@ -10,7 +10,8 @@ import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
 import { FormsModule } from '@angular/forms';
-import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonGridComponent } from './components/pokemon-grid/pokemon-grid.component';
+import { PokemonGridItemComponent } from './components/pokemon-grid-item/pokemon-grid-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     PokemonCataloguePage,
     TrainerPage,
     LoginFormComponent,
-    PokemonListComponent
+    PokemonGridComponent,
+    PokemonGridItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background: #FFFDED;
+}
+
+.bg-grid-container{
+    background: #FFFFFF;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20.5px;
+}
+
+.bg-grid-item {
+    background: #46494C;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.border-color-gird-item {
+    border: #FFE588 solid 3px;
+}
