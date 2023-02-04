@@ -1,15 +1,23 @@
 <aside class="absolute top-4 right-4">
     <button 
-    (click)="onFavouriteClick()"
-    class="border border-slate-300 flex justify-center items-center p-2 text-red-600">
+        (click)="onFavouriteClick()"
+        class="border border-slate-300 flex justify-center items-center p-2 text-blue-500">
 
-    <ng-container *ngIf="isPokemonCaught; then pokemonCaught else notCaughtPokemon" class="material-icons"></ng-container>
-    <ng-template #pokemonCaught>
-        <span class="material-icons">star</span>
-    </ng-template>
-    <ng-template #notCaughtPokemon>
-        <span class="material-icons">star_border</span>
-    </ng-template>
-        
+        <ng-container *ngIf="!loading; else spinner">
+            <ng-container *ngIf="isPokemonCaught; then pokemonCaught else notCaughtPokemon" class="material-icons"></ng-container>
+    
+            <ng-template #pokemonCaught>
+                <span class="material-icons">star</span>
+            </ng-template>
+            
+            <ng-template #notCaughtPokemon>
+                <span class="material-icons">star_border</span>
+            </ng-template>
+        </ng-container>
+
+
+        <ng-template #spinner>
+            <span class="material-icons animate-spin">refresh</span>
+        </ng-template>
     </button>
 </aside>
