@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/models/trainer.model';
 import { FavouriteService } from 'src/app/services/favourite.service';
@@ -11,12 +11,10 @@ import { TrainerService } from 'src/app/services/trainer.service';
 })
 export class FavouriteButtonComponent  implements OnInit{
 
+  public loading: boolean = false;
+
   public isPokemonCaught: boolean = false;
   @Input() pokemonName: string="";
-
-  get loading(): boolean{
-    return this.favouriteService.loading;
-  }
 
   constructor(
     private trainerService: TrainerService,
@@ -27,10 +25,14 @@ export class FavouriteButtonComponent  implements OnInit{
     this.isPokemonCaught = this.trainerService.inCatchPokemon(this.pokemonName);
   }
   onFavouriteClick(): void{
+
+    this.loading = true;
+
     this.favouriteService.addToFavourites(this.pokemonName)
     .subscribe({
-      next:(response: Trainer) => {
-        console.log("NEXT", response)
+      next:(trainer: Trainer) => {
+        this.loading = false;
+        this,this.isPokemonCaught = this.trainerService.inCatchPokemon(this.pokemonName);
       },
       error: (error: HttpErrorResponse) => {
         console.log("ERROR", error.message)

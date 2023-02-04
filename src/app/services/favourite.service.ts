@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { Trainer } from '../models/trainer.model';
@@ -13,11 +13,6 @@ const {apiKey, apiTrainers} = environment;
 })
 export class FavouriteService {
 
-  private _loading: boolean = false;
-  get loading(): boolean{
-    return this._loading;
-  }
-
   constructor(
     private http: HttpClient,
     private readonly pokemonService: PokemonCatalogueService,
@@ -25,7 +20,7 @@ export class FavouriteService {
   ) { }
   //Get pokemon base on name
 
-  //Patch request with trainerId and the pokemon
+  //Patch request with trainerId and the pokemon TODO: Change function names from favourites to catchPokemons!
   public addToFavourites(pokemonName: string): Observable<Trainer> {
     
     if(!this.trainerService.trainer){
@@ -39,9 +34,10 @@ export class FavouriteService {
       throw new Error("No pokemon with name: " + pokemonName);
     }
 
-    if(this.trainerService.inCatchPokemon(pokemonName)){
-      throw new Error("addToFavourites: Pokemon alraedy caught");
-      
+    if(this.trainerService.inCatchPokemon(pokemonName)) {
+      this.trainerService.removeFromCatchPokemons(pokemonName);
+    } else {
+       this.trainerService.addToCatchPokemons(pokemon)
     }
 
     const headers = new HttpHeaders({
@@ -49,19 +45,13 @@ export class FavouriteService {
       'x-api-key': apiKey
     }) 
 
-    this._loading = true;
-
     return this.http.patch<Trainer>(`${apiTrainers}/${trainer.id}`,{
-      pokemon: [...trainer.pokemon, pokemon]
-    },{
-      headers
-    })
+      pokemon: [...trainer.pokemon]
+    },{ headers })
     .pipe(
       tap((updatedTrainer: Trainer) => {
         this.trainerService.trainer = updatedTrainer;
       }),
-      finalize(() => {
-        this._loading = false})
     )
   }
 }
