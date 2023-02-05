@@ -42,4 +42,10 @@ export class TrainerService {
       this._trainer.pokemon = this._trainer.pokemon.filter((pokemon: Pokemon) => pokemon.name !== pokemonName);
     }
   }
+
+  // Sets the trainer to undefined in session storage so the users get redirected to the login page
+  public logoutTrainer(): void {
+    this.trainer = undefined;
+    window.location.reload;
+  }
 }

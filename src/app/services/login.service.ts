@@ -25,15 +25,15 @@ export class LoginService {
     )
   }
 
-  // Check if trainer exists
+  // Checks if trainer exists in trainer api
   private checkUsername(username: string): Observable<Trainer | undefined> {
     return this.http.get<Trainer[]>(`${apiTrainers}?username=${username}`)
-    .pipe( // TODO: rename interface to user and understand purpose of map 
+    .pipe(
       map((response: Trainer[]) => response.pop())
     )
   }
 
-  // Create trainer
+  // Creates trainer 
   private createTrainer(username: string): Observable<Trainer> {
     const trainer = {
       username,
@@ -49,6 +49,4 @@ export class LoginService {
       headers
     })
   }
-  
-
 }
