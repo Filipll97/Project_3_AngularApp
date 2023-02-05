@@ -26,6 +26,6 @@ export class PokemonCataloguePage implements OnInit{
   ) {  }
 
   ngOnInit(): void {
-    this.PokemonCatalogueServices.findAllPokemons();
+    this.PokemonCatalogueServices.fetchAllPokemons();
   }
 }
