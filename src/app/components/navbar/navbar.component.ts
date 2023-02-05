@@ -13,11 +13,11 @@ export class NavbarComponent {
     return this.trainerService.trainer;
   }
 
-  // TODO: Change this function
-  public logoutTrainer(): void {
-    this.trainerService.trainer = undefined;
+  public handleLogoutTrainer(): void {
+    this.trainerService.logoutTrainer();
+  
   }
   constructor(
-    private readonly trainerService: TrainerService
+    private readonly trainerService: TrainerService,
   ) { }
 }

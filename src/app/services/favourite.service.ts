@@ -1,16 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { PokemonCatalogueService } from './pokemon-catalogue.service';
+import { TrainerService } from './trainer.service';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { Trainer } from '../models/trainer.model';
-import { PokemonCatalogueService } from './pokemon-catalogue.service';
-import { TrainerService } from './trainer.service';
 
 const {apiKey, apiTrainers} = environment;
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class FavouriteService {
 
   constructor(
@@ -18,9 +20,7 @@ export class FavouriteService {
     private readonly pokemonService: PokemonCatalogueService,
     private readonly trainerService: TrainerService,
   ) { }
-  //Get pokemon base on name
 
-  //Patch request with trainerId and the pokemon TODO: Change function names from favourites to catchPokemons!
   public addToFavourites(pokemonName: string): Observable<Trainer> {
     
     if(!this.trainerService.trainer){
