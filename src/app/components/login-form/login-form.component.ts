@@ -18,19 +18,22 @@ export class LoginFormComponent {
     private readonly trainerService: TrainerService,
     ) {}
 
+	public loading: boolean = false;
 
   public loginSubmit(loginForm: NgForm): void {
-    
-    const { username } = loginForm.value
-
+		
+		const { username } = loginForm.value
+		this.loading = true;
+		
     this.loginService.login(username)
     .subscribe({
       next: (trainer: Trainer) => {
+				this.loading = false
         this.trainerService.trainer = trainer;
         this.login.emit();
       },
-      error: () => {
-
+      error: (e) => {
+        console.log("LoginSubmit: ", e);
       }
     })
   }

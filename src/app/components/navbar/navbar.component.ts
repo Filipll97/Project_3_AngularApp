@@ -15,9 +15,7 @@ export class NavbarComponent {
 
   public handleLogoutTrainer(): void {
     this.trainerService.logoutTrainer();
-  
   }
-  constructor(
-    private readonly trainerService: TrainerService,
-  ) { }
+
+  constructor(private readonly trainerService: TrainerService) { }
 }
