@@ -21,7 +21,5 @@ export class TrainerPage {
     return [];
   }
 
-  constructor(
-    private trainerService: TrainerService
-  ) {}
+  constructor(private trainerService: TrainerService) {}
 }

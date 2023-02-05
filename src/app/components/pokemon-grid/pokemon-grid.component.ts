@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
@@ -6,12 +6,9 @@ import { Pokemon } from 'src/app/models/pokemon.model';
   templateUrl: './pokemon-grid.component.html',
   styleUrls: ['./pokemon-grid.component.css']
 })
-export class PokemonGridComponent implements OnInit{
+export class PokemonGridComponent{
 
   @Input() pokemons: Pokemon[] = [];
 
   constructor() {}
-
-  ngOnInit(): void {
-  }
 }

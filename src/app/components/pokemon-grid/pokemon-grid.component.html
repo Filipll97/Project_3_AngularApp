@@ -1,6 +1,7 @@
 <main class="container grid grid-flow-row-dense grid-cols-4 gap-4 bg-grid-container p-4">
-    <app-pokemon-grid-item 
-    *ngFor="let pokemon of pokemons"
-    [pokemon]="pokemon" 
-    ></app-pokemon-grid-item>
-  </main>
+  
+  <app-pokemon-grid-item 
+    *ngFor="let pokemon of pokemons" [pokemon]="pokemon">
+  </app-pokemon-grid-item>
+
+</main>

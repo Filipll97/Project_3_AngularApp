@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Utility classes */
 body {
     background: #FFFDED;
     font-family: 'Roboto', sans-serif;
@@ -14,6 +16,7 @@ body {
     -webkit-text-stroke: 4px #333;
 }
 
+/* Background utility classes */
 .bg-navbar-default {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.076) 30.21%, rgba(0, 0, 0, 0) 100%), #C85048;
     border-bottom: 4px solid #FFE588;
@@ -31,6 +34,7 @@ body {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* Border utility class */
 .border-color-gird-item {
     border: #FFE588 solid 3px;
 }

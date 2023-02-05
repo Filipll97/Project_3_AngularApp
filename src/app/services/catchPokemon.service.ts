@@ -12,8 +12,7 @@ const {apiKey, apiTrainers} = environment;
 @Injectable({
   providedIn: 'root'
 })
-
-export class FavouriteService {
+export class CatchPokemonService {
 
   constructor(
     private http: HttpClient,
@@ -21,10 +20,10 @@ export class FavouriteService {
     private readonly trainerService: TrainerService,
   ) { }
 
-  public addToFavourites(pokemonName: string): Observable<Trainer> {
+  public addToCatchPokemons(pokemonName: string): Observable<Trainer> {
     
     if(!this.trainerService.trainer){
-      throw new Error("addToFavourites: There is no trainer");
+      throw new Error("addToCatchPokemons: There is no trainer");
       
     }
     const trainer: Trainer = this.trainerService.trainer;

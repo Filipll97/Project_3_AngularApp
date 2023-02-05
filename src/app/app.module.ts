@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PokemonGridComponent } from './components/pokemon-grid/pokemon-grid.component';
 import { PokemonGridItemComponent } from './components/pokemon-grid-item/pokemon-grid-item.component';
-import { FavouriteButtonComponent } from './components/favourite-button/favourite-button.component';
+import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button';
 
 import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
@@ -20,18 +20,18 @@ import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogu
   declarations: [
     AppComponent,
     LoginPage,
-    PokemonCataloguePage,
     TrainerPage,
+    NavbarComponent,
     LoginFormComponent,
+    PokemonCataloguePage,
     PokemonGridComponent,
     PokemonGridItemComponent,
-    NavbarComponent,
-    FavouriteButtonComponent,
+    CatchPokemonButtonComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

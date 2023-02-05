@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { StorageKeys } from 'src/app/enums/storage-keys.enum';
 import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({

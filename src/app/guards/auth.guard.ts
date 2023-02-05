@@ -8,23 +8,21 @@ import { TrainerService } from '../services/trainer.service';
 })
 export class AuthGuard implements CanActivate {
 
-
   constructor(
     private readonly router: Router,
     private readonly trainerService: TrainerService,
   ) { }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (this.trainerService.trainer) {
-      return true;
+      if (this.trainerService.trainer) {
+        return true;
+      }
+      else {
+        this.router.navigateByUrl("/login");
+        return false
+      }
     }
-    else {
-      this.router.navigateByUrl("/login");
-      return false
-    }
-  }
-
-
 }

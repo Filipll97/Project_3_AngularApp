@@ -1,25 +1,25 @@
 <nav class="bg-navbar-default flex justify-center items-center p-4 sticky top-0 w-full z-50">
-    <section>
-        <img src="assets/img/pokemon-logo.png" alt="pokemon title logo"
-        class="h-20 w-55 mr-16">
-    </section>
+  <section>
+    <img src="assets/img/pokemon-logo.png" alt="pokemon title logo"
+    class="h-20 w-55 mr-16">
+  </section>
 
-    <ng-container *ngIf="trainer !== undefined">
-        <ul class="flex">
+  <ng-container *ngIf="trainer !== undefined">
+    <ul class="flex">
 
-            <li class="px-4 bg-slate-600 rounded p-2 mr-2 flex content-center items-center">
-                <a routerLink="/trainer" class="text-stone-50 text-xl hover:text-stone-300">TrainerPage</a>
-            </li>
+      <li class="px-4 bg-slate-600 rounded p-2 mr-2 flex content-center items-center">
+        <a routerLink="/trainer" class="text-stone-50 text-xl hover:text-stone-300">TrainerPage</a>
+      </li>
 
-            <li class="px-4  bg-slate-600 rounded p-2 flex content-center items-center">
-                <a routerLink="/pokemon-catalogue" class="text-stone-50 text-xl  hover:text-stone-300">Pokemon Catalogue</a>
-            </li>
+      <li class="px-4  bg-slate-600 rounded p-2 flex content-center items-center">
+        <a routerLink="/pokemon-catalogue" class="text-stone-50 text-xl  hover:text-stone-300">Pokemon Catalogue</a>
+      </li>
 
-            <li class="px-4  bg-slate-600 rounded p-2 ml-2 flex content-center items-center">
-                <a (click)="handleLogoutTrainer()" routerLink="/login" class="text-stone-50 text-xl  hover:text-stone-300">Logout</a>
-            </li>
+      <li class="px-4  bg-slate-600 rounded p-2 ml-2 flex content-center items-center">
+        <a (click)="handleLogoutTrainer()" routerLink="/login" class="text-stone-50 text-xl  hover:text-stone-300">Logout</a>
+      </li>
 
-        </ul>
-    </ng-container>
+    </ul>
+  </ng-container>
 </nav>
 
