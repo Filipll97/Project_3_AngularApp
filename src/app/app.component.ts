@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.trainerService.trainer) {
-      this.pokemonService.findAllPokemons();
+      this.pokemonService.fetchAllPokemons();
     }
   }
 }
