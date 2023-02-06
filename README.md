@@ -1,5 +1,5 @@
-Link to Vercel app: https://project-3-pokemon-trainer.vercel.app/login 
-Link to component tree in figma: https://www.figma.com/file/sKguDZnomKvhGU86qWWrcO/Project-3-Pok%C3%A9mon-Trainer-App?node-id=0%3A1&t=waHzRMxypGjn67F6-0
+- Link to Vercel app: https://project-3-pokemon-trainer.vercel.app/login 
+- Link to component tree in figma: https://www.figma.com/file/sKguDZnomKvhGU86qWWrcO/Project-3-Pok%C3%A9mon-Trainer-App?node-id=0%3A1&t=waHzRMxypGjn67F6-0
 
 This application was created with angular and is our third group project at Experis Academy.
 
