@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { Trainer } from '../models/trainer.model';
 
-const {apiKey, apiTrainers} = environment;
+const { apiKey, apiTrainers } = environment;
 
 @Injectable({
   providedIn: 'root'
@@ -21,36 +21,36 @@ export class CatchPokemonService {
   ) { }
 
   public addToCatchPokemons(pokemonName: string): Observable<Trainer> {
-    
-    if(!this.trainerService.trainer){
+
+    if (!this.trainerService.trainer) {
       throw new Error("addToCatchPokemons: There is no trainer");
-      
+
     }
     const trainer: Trainer = this.trainerService.trainer;
     const pokemon: Pokemon | undefined = this.pokemonService.pokemonByName(pokemonName);
 
-    if(!pokemon){
+    if (!pokemon) {
       throw new Error("No pokemon with name: " + pokemonName);
     }
 
-    if(this.trainerService.inCatchPokemon(pokemonName)) {
+    if (this.trainerService.inCatchPokemon(pokemonName)) {
       this.trainerService.removeFromCatchPokemons(pokemonName);
     } else {
-       this.trainerService.addToCatchPokemons(pokemon)
+      this.trainerService.addToCatchPokemons(pokemon)
     }
 
     const headers = new HttpHeaders({
       'content-type': 'application/json',
       'x-api-key': apiKey
-    }) 
+    })
 
-    return this.http.patch<Trainer>(`${apiTrainers}/${trainer.id}`,{
+    return this.http.patch<Trainer>(`${apiTrainers}/${trainer.id}`, {
       pokemon: [...trainer.pokemon]
-    },{ headers })
-    .pipe(
-      tap((updatedTrainer: Trainer) => {
-        this.trainerService.trainer = updatedTrainer;
-      }),
-    )
+    }, { headers })
+      .pipe(
+        tap((updatedTrainer: Trainer) => {
+          this.trainerService.trainer = updatedTrainer;
+        }),
+      )
   }
 }

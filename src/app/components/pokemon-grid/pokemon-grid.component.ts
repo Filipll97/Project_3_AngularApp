@@ -6,9 +6,9 @@ import { Pokemon } from 'src/app/models/pokemon.model';
   templateUrl: './pokemon-grid.component.html',
   styleUrls: ['./pokemon-grid.component.css']
 })
-export class PokemonGridComponent{
+export class PokemonGridComponent {
 
   @Input() pokemons: Pokemon[] = [];
 
-  constructor() {}
+  constructor() { }
 }

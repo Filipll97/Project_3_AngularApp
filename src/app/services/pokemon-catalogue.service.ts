@@ -24,7 +24,7 @@ export class PokemonCatalogueService {
   get error(): string {
     return this._error;
   }
-  
+
   get loading(): boolean {
     return this._loading;
   }
@@ -32,31 +32,32 @@ export class PokemonCatalogueService {
   constructor(private readonly http: HttpClient) { }
 
   public fetchAllPokemons(): void {
-    
+
     if (this._pokemons.length > 0 || this.loading) {
       return;
     }
+
     if (StorageUtil.storageRead(StorageKeys.pokemonCatalogue) !== undefined) {
       this.fetchPokemonsFromSessionStorage();
       return;
     }
-        
+
     this._loading = true;
     this.http.get<Pokemon[]>(apiPokemons)
-    .pipe(
-      finalize(() => {
-        this._loading = false;
-      })
+      .pipe(
+        finalize(() => {
+          this._loading = false;
+        })
       ).subscribe({
         next: (pokemons: any) => {
           this._pokemons = pokemons.results;
           StorageUtil.storageSave(StorageKeys.pokemonCatalogue, pokemons.results)
-        }, 
+        },
         error: (error: HttpErrorResponse) => {
           this._error = error.message;
         }
       })
-    }
+  }
 
   public pokemonByName(name: string): Pokemon | undefined {
     return this._pokemons.find((pokemon: Pokemon) => pokemon.name === name);

@@ -10,7 +10,7 @@ export class PokemonGridItemComponent {
 
   @Input() pokemon?: Pokemon;
 
-  constructor() {}
+  constructor() { }
 
   pokemonUrl = this.pokemon?.url
 }
