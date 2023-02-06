@@ -9,33 +9,33 @@ import { CatchPokemonService } from 'src/app/services/catchPokemon.service';
   templateUrl: './catch-pokemon-button.html',
   styleUrls: ['./catch-pokemon-button.css']
 })
-export class CatchPokemonButtonComponent  implements OnInit{
+export class CatchPokemonButtonComponent implements OnInit {
 
   public loading: boolean = false;
   public isPokemonCaught: boolean = false;
 
-  @Input() pokemonName: string="";
+  @Input() pokemonName: string = "";
 
   constructor(
     private trainerService: TrainerService,
     private readonly catchPokemonService: CatchPokemonService
-  ){}
+  ) { }
 
   ngOnInit(): void {
     this.isPokemonCaught = this.trainerService.inCatchPokemon(this.pokemonName);
   }
-  onCatchPokemonClick(): void{
+  onCatchPokemonClick(): void {
 
     this.loading = true;
     this.catchPokemonService.addToCatchPokemons(this.pokemonName)
-    .subscribe({
-      next:(trainer: Trainer) => {
-        this.loading = false;
-        this,this.isPokemonCaught = this.trainerService.inCatchPokemon(this.pokemonName);
-      },
-      error: (error: HttpErrorResponse) => {
-        console.log("ERROR", error.message)
-      }
-    })
+      .subscribe({
+        next: (trainer: Trainer) => {
+          this.loading = false;
+          this, this.isPokemonCaught = this.trainerService.inCatchPokemon(this.pokemonName);
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log("ERROR", error.message)
+        }
+      })
   }
 }

@@ -1,10 +1,10 @@
 <aside class="absolute top-4 right-4">
-  <button
-    (click)="onCatchPokemonClick()"
+  <button (click)="onCatchPokemonClick()"
     class="border border-slate-300 flex justify-center items-center p-2 text-blue-500 border-none">
 
     <ng-container *ngIf="!loading; else spinner">
-      <ng-container *ngIf="isPokemonCaught; then pokemonCaught else notCaughtPokemon" class="material-icons"></ng-container>
+      <ng-container *ngIf="isPokemonCaught; then pokemonCaught else notCaughtPokemon"
+        class="material-icons"></ng-container>
 
       <ng-template #pokemonCaught>
         <span class="material-icons hover:scale-125 scale-150 z-10">star</span>

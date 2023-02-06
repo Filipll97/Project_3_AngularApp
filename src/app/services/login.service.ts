@@ -15,22 +15,22 @@ export class LoginService {
 
   public login(username: string): Observable<Trainer> {
     return this.checkUsername(username)
-    .pipe(
-      switchMap((trainer: Trainer | undefined) => {
-        if (trainer === undefined) {
-          return this.createTrainer(username);
-        }
-        return of(trainer);
-      })
-    )
+      .pipe(
+        switchMap((trainer: Trainer | undefined) => {
+          if (trainer === undefined) {
+            return this.createTrainer(username);
+          }
+          return of(trainer);
+        })
+      )
   }
 
   // Checks if trainer exists in trainer api
   private checkUsername(username: string): Observable<Trainer | undefined> {
     return this.http.get<Trainer[]>(`${apiTrainers}?username=${username}`)
-    .pipe(
-      map((response: Trainer[]) => response.pop())
-    )
+      .pipe(
+        map((response: Trainer[]) => response.pop())
+      )
   }
 
   // Creates trainer 

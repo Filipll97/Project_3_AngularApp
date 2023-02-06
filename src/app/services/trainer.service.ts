@@ -20,12 +20,12 @@ export class TrainerService {
     this._trainer = trainer;
   }
 
-  constructor() { 
-    this._trainer  = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer);
-  } 
+  constructor() {
+    this._trainer = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer);
+  }
 
-  public inCatchPokemon(pokemonName: string): boolean{
-    if(this._trainer){
+  public inCatchPokemon(pokemonName: string): boolean {
+    if (this._trainer) {
       return Boolean(this.trainer?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName));
     }
     return false;

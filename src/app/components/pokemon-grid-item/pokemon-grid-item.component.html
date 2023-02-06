@@ -1,11 +1,12 @@
-<div *ngIf="pokemon">  
+<div *ngIf="pokemon">
   <div class="container flex flex-col text-center shadow-xl 
   bg-grid-item rounded-2xl border-color-gird-item relative h-60 justify-center content-center">
-  
+
     <section class="flex justify-center">
       <app-catch-pokemon-button [pokemonName]="pokemon.name"></app-catch-pokemon-button>
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon.url.slice(34, -1) }}.png" alt="pokemon.name" height="200" width="200"
-      class="block">
+      <img
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon.url.slice(34, -1) }}.png"
+        alt="pokemon.name" height="200" width="200" class="block">
     </section>
 
     <span class="text-gray-200 text-xl font-bold">
